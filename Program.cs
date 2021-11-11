@@ -14,7 +14,7 @@ var items = new Faker<Item>()
     .RuleFor(item => item.LastName, fake => fake.Person.LastName)
     .Generate(count: 10);
 
-var connectionString = await HarnessUtility.GetEventHubConnectionStringAsync(connectionName: System.Environment.GetEnvironmentVariable("HARNESS_STORAGE_CONNECTIONSTRING_NAME"));
+var connectionString = await HarnessUtility.GetBlobStorageConnectionStringAsync(connectionName: System.Environment.GetEnvironmentVariable("HARNESS_STORAGE_CONNECTIONSTRING_NAME"));
 var serviceClient = new BlobServiceClient(connectionString: connectionString);
 var container = serviceClient.GetBlobContainerClient(blobContainerName: System.Environment.GetEnvironmentVariable("HARNESS_STORAGE_CONTAINER_NAME"));
 
