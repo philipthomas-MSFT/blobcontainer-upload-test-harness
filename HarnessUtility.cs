@@ -11,10 +11,10 @@ using Microsoft.Azure.Services.AppAuthentication;
 public class HarnessUtility
 {
     /// <summary>
-    /// Method used for obtaining the EventHub connection string from key vault.
+    /// Method used for obtaining the Blob storage connection string from key vault.
     /// </summary>
     /// <param name="connectionName">The name of the connection.</param>
-    public static async Task<string> GetEventHubConnectionStringAsync(string connectionName)
+    public static async Task<string> GetBlobStorageConnectionStringAsync(string connectionName)
     {
         var tokenProvider = new AzureServiceTokenProvider();
         var client = new KeyVaultClient(authenticationCallback: new KeyVaultClient.AuthenticationCallback(tokenProvider.KeyVaultTokenCallback));
